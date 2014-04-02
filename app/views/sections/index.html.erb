@@ -1,0 +1,11 @@
+<h1>Learn How To Program</h1>
+
+<h3>Sections</h3>
+
+<ul>
+  <% @sections.order(:number).each do |section| %>
+    <li><a href="/sections/<%= section.id %>/"><%= section.name %></a></li>
+  <% end %>
+</ul>
+
+<p><a href="/sections/new">Add a new section</a></p>

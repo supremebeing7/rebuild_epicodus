@@ -1,0 +1,22 @@
+<h1>Edit Section</h1>
+
+<% if @section.errors.any? %>
+  <ul>
+    <% @section.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<form action="/sections/<%= @section.id %>" id="section_form" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="section_number">Number:</label>
+  <input id="section_number" name="section[number]" type="text" value="<%= @section.number %>">
+  <label for="section_name">Name:</label>
+  <input id="section_name" name="section[name]" type="text" value="<%= @section.name %>">
+  <!-- <label for="chapter_name">Chapter:</label>
+  <input id="chapter_name" name="section[chapter_id]" type="text" value="<%= @section.chapter_id %>"> -->
+</form>
+
+<button form="section_form">Update section</button>
