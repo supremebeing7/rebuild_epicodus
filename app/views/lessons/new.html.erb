@@ -14,9 +14,12 @@
   <input id="lesson_number" name="lesson[number]" type="text">
   <label for="lesson_name">Name:</label>
   <input id="lesson_name" name="lesson[name]" type="text">
-  <!-- <label for="lesson_name">Section:</label>
-  <input method="" name="lesson[section_id]" type="text"> -->
+  <select name="lesson[section_id]">
+    <% @sections.each do |section| %>
+      <option value="<%= section.id %>"><%= section.name %></option>
+    <% end %>
+  </select>
 </form>
 
 <textarea method="" name="lesson[content]" form="lesson_form">Content:</textarea>
-<button form="lesson_form">Create Lesson</button>
+<p><button form="lesson_form">Create Lesson</button></p>
