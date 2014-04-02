@@ -3,7 +3,7 @@
 
 <p><%= @lesson.content%></p>
 
-<p><a href="/lessons/<%= @lesson.id %>/edit">Edit Lesson</a></p>
+<p><a href="/sections/<%= @lesson.section.id%>/lessons/<%= @lesson.id %>/edit">Edit Lesson</a></p>
 <p><a href="/lessons/<%= @lesson.id %>"
     data-confirm="Sure you want to delete this?"
     data-method="delete"

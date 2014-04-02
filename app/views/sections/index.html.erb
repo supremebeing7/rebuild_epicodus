@@ -1,13 +1,13 @@
 <h1>Learn How To Program</h1>
 
-<h3>Sections</h3>
+<h3>Sections Table of Contents</h3>
 
 <ul>
   <% @sections.order(:number).each do |section| %>
     <li><a href="/sections/<%= section.id %>/"><%= section.name %></a></li>
     <ul>
       <% section.lessons.order(:number).each do |lesson| %>
-        <li><a href="/lessons/<%= lesson.id %>/"><%= lesson.name %></a></li>
+        <li><a href="sections/<%= section.id%>/lessons/<%= lesson.id %>/"><%= lesson.name %></a></li>
       <% end %>
     </ul>
   <% end %>
