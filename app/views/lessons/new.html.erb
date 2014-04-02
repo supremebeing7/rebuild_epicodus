@@ -1,0 +1,22 @@
+<h1>Create a lesson</h1>
+
+<% if @lesson.errors.any? %>
+  <ul>
+    <% @lesson.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<form action="/lessons/<%= @lesson.id %>" id="lesson_form" method="post">
+  <label for="lesson_number">Number:</label>
+  <input id="lesson_number" name="lesson[number]" type="text">
+  <label for="lesson_name">Name:</label>
+  <input id="lesson_name" name="lesson[name]" type="text">
+  <!-- <label for="lesson_name">Section:</label>
+  <input method="" name="lesson[section_id]" type="text"> -->
+</form>
+
+<textarea method="" name="lesson[content]" form="lesson_form">Content:</textarea>
+<button form="lesson_form">Create Lesson</button>
