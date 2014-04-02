@@ -12,7 +12,15 @@ describe Lesson do
     it 'returns the lesson with the next highest number from the current lesson.' do
       current_lesson = Lesson.create({name: 'lesson1', number: 1})
       next_lesson = Lesson.create({name: 'lesson3', number: 3})
-      current_lesson.next.should eq  next_lesson
+      current_lesson.next.should eq next_lesson
+    end
+  end
+
+  context '#previous' do
+    it 'returns the lesson with the previous highest number from the current lesson.' do
+      current_lesson = Lesson.create({name: 'lesson9', number: 9})
+      previous_lesson = Lesson.create({name: 'lesson1', number: 1})
+      current_lesson.previous.should eq previous_lesson
     end
   end
 end

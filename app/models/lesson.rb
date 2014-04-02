@@ -4,11 +4,25 @@ class Lesson < ActiveRecord::Base
   belongs_to :section
 
   def next
-    num = 1
     found_num = nil
-    until found_num != nil || num == Lesson.all.last.number
-      found_num = Lesson.find_by(:number => (self.number.to_i + num).to_s)
-      num += 1
+    if self.number != Lesson.all.order(:number).last.number
+      num = 1
+      until found_num != nil
+        found_num = Lesson.find_by(:number => (self.number.to_i + num).to_s)
+        num += 1
+      end
+    end
+    found_num
+  end
+
+  def previous
+    found_num = nil
+    if self.number != Lesson.all.order(:number).first.number
+      num = 1
+      until found_num != nil
+        found_num = Lesson.find_by(:number => (self.number.to_i - num).to_s)
+        num += 1
+      end
     end
     found_num
   end
