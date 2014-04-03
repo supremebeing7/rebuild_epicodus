@@ -9,12 +9,11 @@
 <% end %>
 
 
-<form action="/chapters/<%= @chapter.id %>" id="chapter_form" method="post">
+<form action="/chapters/<%= @chapter.slug %>" id="chapter_form" method="post">
   <label for="chapter_number">Number:</label>
   <input id="chapter_number" name="chapter[number]" type="text">
   <label for="chapter_name">Name:</label>
   <input id="chapter_name" name="chapter[name]" type="text">
-  <input id="chapter_name" name="chapter[name]" type="hidden">
   <button>Create chapter</button>
 </form>
 

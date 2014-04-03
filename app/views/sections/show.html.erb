@@ -2,14 +2,14 @@
 
 <ul>
   <% @section.lessons.order(:number).each do |lesson| %>
-    <li><a href="/sections/<%= @section.id%>/lessons/<%= lesson.id %>/"><%= lesson.name %></a></li>
+    <li><a href="/sections/<%= @section.slug %>/lessons/<%= lesson.slug %>/"><%= lesson.name %></a></li>
   <% end %>
 </ul>
 
-<p><a href="/sections/<%= @section.id%>/lessons/new">Add a new lesson to <%= @section.name %></a></p>
+<p><a href="/sections/<%= @section.slug %>/lessons/new">Add a new lesson to <%= @section.name %></a></p>
 
-<button><a href="/chapters/<%= @section.chapter.id %>/sections/<%= @section.id %>/edit">Edit Section</a></button>
-<button><a href="/sections/<%= @section.id %>"
+<button><a href="/chapters/<%= @section.chapter.slug %>/sections/<%= @section.slug %>/edit">Edit Section</a></button>
+<button><a href="/sections/<%= @section.slug %>"
     data-confirm="Sure you want to delete this?"
     data-method="delete"
     rel="nofollow">Delete Section</a></button>

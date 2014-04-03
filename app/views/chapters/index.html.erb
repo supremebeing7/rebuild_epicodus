@@ -4,13 +4,13 @@
 
 <ul>
   <% @chapters.order(:number).each do |chapter| %>
-    <li><a href="/chapters/<%= chapter.id %>/"><%= chapter.name %></a></li>
+    <li><a href="/chapters/<%= chapter.slug %>/"><%= chapter.name %></a></li>
     <ul>
       <% chapter.sections.order(:number).each do |section| %>
-        <li><a href="chapters/<%= chapter.id%>/sections/<%= section.id %>/"><%= section.name %></a></li>
+        <li><a href="chapters/<%= chapter.slug %>/sections/<%= section.slug %>/"><%= section.name %></a></li>
         <ul>
           <% section.lessons.order(:number).each do |lesson| %>
-            <li><a href="/sections/<%= section.id%>/lessons/<%= lesson.id %>/"><%= lesson.name %></a></li>
+            <li><a href="/sections/<%= section.slug %>/lessons/<%= lesson.slug %>/"><%= lesson.name %></a></li>
           <% end %>
         </ul>
       <% end %>

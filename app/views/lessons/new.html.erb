@@ -9,7 +9,7 @@
 <% end %>
 
 
-<form action="/sections/<%= params['section_id']%>/lessons/<%= @lesson.id %>" id="lesson_form" method="post">
+<form action="/sections/<%= params[:section_slug] %>/lessons/<%= @lesson.slug %>" id="lesson_form" method="post">
   <label for="lesson_number">Number:</label>
   <input id="lesson_number" name="lesson[number]" type="text">
   <label for="lesson_name">Name:</label>

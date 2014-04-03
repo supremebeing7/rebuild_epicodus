@@ -4,7 +4,7 @@
 
 <ul>
   <% @lessons.order(:number).each do |lesson| %>
-    <li><a href="/lessons/<%= lesson.id %>/"><%= lesson.name %></a></li>
+    <li><a href="/lessons/<%= lesson.slug %>/"><%= lesson.name %></a></li>
   <% end %>
 </ul>
 
