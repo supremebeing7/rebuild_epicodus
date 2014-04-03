@@ -5,6 +5,7 @@ class SectionsController < ApplicationController
   end
 
   def new
+    @chapters = Chapter.all
     @section = Section.new
     render('sections/new.html.erb')
   end
@@ -12,7 +13,7 @@ class SectionsController < ApplicationController
   def create
     @section = Section.new(params[:section])
     if @section.save
-      redirect_to("/sections/#{@section.id}")
+      redirect_to("/chapters/#{@section.chapter.id}/sections/#{@section.id}")
     else
       render('sections/new.html.erb')
     end
@@ -31,7 +32,7 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
     @section.update(params[:section])
-    redirect_to("/sections/#{@section.id}")
+    redirect_to("/chapters/#{@section.chapter.id}/sections/#{@section.id}")
   end
 
   def destroy

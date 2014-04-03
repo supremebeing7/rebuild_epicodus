@@ -9,14 +9,18 @@
 <% end %>
 
 
-<form action="/sections/<%= @section.id %>" id="section_form" method="post">
+<form action="/chapters/<%= @section.chapter.id %>/sections/<%= @section.id %>" id="section_form" method="post">
   <input name="_method" type="hidden" value="patch">
   <label for="section_number">Number:</label>
   <input id="section_number" name="section[number]" type="text" value="<%= @section.number %>">
   <label for="section_name">Name:</label>
   <input id="section_name" name="section[name]" type="text" value="<%= @section.name %>">
-  <!-- <label for="chapter_name">Chapter:</label>
-  <input id="chapter_name" name="section[chapter_id]" type="text" value="<%= @section.chapter_id %>"> -->
+  <select name="section[chapter_id]">
+    <option value="<%= @section.chapter.id %>" selected><%= @section.chapter.name %></option>
+    <% Chapter.unselected_chapters(@section).each do |chapter| %>
+      <option value="<%= chapter.id %>"><%= chapter.name %></option>
+    <% end %>
+  </select>
 </form>
 
-<button form="section_form">Update section</button>
+<button form="section_form">Update Section</button>

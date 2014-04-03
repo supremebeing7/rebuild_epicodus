@@ -1,18 +1,18 @@
 <h1><%= @lesson.name%></h1>
-<h4>In section: <a href="/sections/<%= @lesson.section.id %>"><%= @lesson.section.name %></a></h4>
+<h4>In section: <a href="/chapters/<%= @lesson.section.chapter.id %>/sections/<%= @lesson.section.id %>"><%= @lesson.section.name %></a></h4>
 
 <p><%= @lesson.content%></p>
 
-<p><a href="/sections/<%= @lesson.section.id%>/lessons/<%= @lesson.id %>/edit">Edit Lesson</a></p>
-<p><a href="/lessons/<%= @lesson.id %>"
+<button><a href="/sections/<%= @lesson.section.id%>/lessons/<%= @lesson.id %>/edit">Edit Lesson</a></button>
+<button><a href="/lessons/<%= @lesson.id %>"
     data-confirm="Sure you want to delete this?"
     data-method="delete"
-    rel="nofollow">Delete Lesson</a></p>
+    rel="nofollow">Delete Lesson</a></button>
 
 <% if @lesson.previous != nil %>
-  <p><a href="/lessons/<%= @lesson.previous.id %>">Previous Lesson</p>
+  <p><a href="/sections/<%= @lesson.section.id%>/lessons/<%= @lesson.previous.id %>">Previous Lesson</p>
 <% end %>
 <% if @lesson.next != nil %>
-  <p><a href="/lessons/<%= @lesson.next.id %>">Next Lesson</p>
+  <p><a href="/sections/<%= @lesson.section.id%>/lessons/<%= @lesson.next.id %>">Next Lesson</p>
 <% end %>
-<p><a href="/">Return to the Table of Contents</a>.</p>
+<p><a href="/">Return to the Table of Contents</a></p>

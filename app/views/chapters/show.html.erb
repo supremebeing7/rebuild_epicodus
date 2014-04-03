@@ -1,0 +1,16 @@
+<h1><%= @chapter.name%></h1>
+
+<ul>
+  <% @chapter.sections.order(:number).each do |section| %>
+    <li><a href="/chapters/<%= @chapter.id%>/sections/<%= section.id %>/"><%= section.name %></a></li>
+  <% end %>
+</ul>
+
+<p><a href="/chapters/<%= @chapter.id%>/sections/new">Add a new section to <%= @chapter.name %></a></p>
+
+<button><a href="/chapters/<%= @chapter.id %>/edit">Edit Chapter</a></button>
+<button><a href="/chapters/<%= @chapter.id %>"
+    data-confirm="Sure you want to delete this?"
+    data-method="delete"
+    rel="nofollow">Delete Chapter</a></button>
+<p><a href="/">Return to the Table of Contents</a></p>

@@ -4,7 +4,8 @@ class Lesson < ActiveRecord::Base
   belongs_to :section
   # default_scope :order => 'number ASC'
 
-
+  extend FriendlyId
+  friendly_id :name
 
   def next
     found = 0

@@ -8,9 +8,11 @@
 
 <p><a href="/sections/<%= @section.id%>/lessons/new">Add a new lesson to <%= @section.name %></a></p>
 
-<p><a href="/sections/<%= @section.id %>/edit">Edit Section</a></p>
-<p><a href="/sections/<%= @section.id %>"
+<button><a href="/chapters/<%= @section.chapter.id %>/sections/<%= @section.id %>/edit">Edit Section</a></button>
+<button><a href="/sections/<%= @section.id %>"
     data-confirm="Sure you want to delete this?"
     data-method="delete"
-    rel="nofollow">Delete Section</a></p>
-<p><a href="/">Return to the Table of Contents</a>.</p>
+    rel="nofollow">Delete Section</a></button>
+
+<p><a href="/sections">Return to Sections</a></p>
+<p><a href="/">Return to the Table of Contents</a></p>

@@ -9,13 +9,16 @@
 <% end %>
 
 
-<form action="/sections/<%= @section.id %>" id="section_form" method="post">
+<form action="/chapters/<%= @section.chapter.id %>/sections/<%= @section.id %>" id="section_form" method="post">
   <label for="section_number">Number:</label>
   <input id="section_number" name="section[number]" type="text">
   <label for="section_name">Name:</label>
   <input id="section_name" name="section[name]" type="text">
-  <!-- <label for="chapter_id">Chapter:</label>
-  <input id="chapter_id" name="section[chapter_id]" type="text"> -->
+  <select name="section[chapter_id]">
+    <% @chapters.each do |chapter| %>
+      <option value="<%= chapter.id %>"><%= chapter.name %></option>
+    <% end %>
+  </select>
   <button>Create section</button>
 </form>
 

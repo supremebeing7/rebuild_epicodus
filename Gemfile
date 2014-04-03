@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'githubrepo'
+gem 'actionpack'
+gem 'friendly_id'
 
 group :development do
   gem 'better_errors'
